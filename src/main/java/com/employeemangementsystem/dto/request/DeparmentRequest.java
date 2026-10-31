@@ -36,5 +36,8 @@ public class DeparmentRequest {
 
     private EmployeeRequest employeeRequest;
 
+    @NotBlank
+    private String deptId;
+
 
 }

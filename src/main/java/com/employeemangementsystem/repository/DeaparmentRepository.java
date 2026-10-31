@@ -14,5 +14,8 @@ public interface DeaparmentRepository extends JpaRepository<Deaparment, Integer>
             nativeQuery = true)
     List<Deaparment> findAllDepartmentsOnly();
 
+    boolean existsByDepartmentName(String departmentName);
+
 
 }
+

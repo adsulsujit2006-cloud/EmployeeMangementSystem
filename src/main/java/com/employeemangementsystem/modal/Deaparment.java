@@ -2,22 +2,29 @@ package com.employeemangementsystem.modal;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
+import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
+
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @Entity
 @ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Table(name = "department")
 public class Deaparment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name = "Deaparment_Id")
+    private String deptId;
 
     @Column(name = "department_name", nullable = false, unique = true, length = 100)
     private String departmentName;
@@ -41,4 +48,8 @@ public class Deaparment {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private List<Employee> employees = new ArrayList<>();
+
+    @CreationTimestamp
+    @Column(name = "Register_Date")
+    private LocalDateTime createdAt;
 }

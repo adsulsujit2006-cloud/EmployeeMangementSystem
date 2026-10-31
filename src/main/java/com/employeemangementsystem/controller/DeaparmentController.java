@@ -23,8 +23,7 @@ public class DeaparmentController {
     public ResponseEntity<DeparmentRequest> registorDeaparment(@RequestBody DeparmentRequest deparmentRequest){
 
         log.info("REST Request : Register deparment using particular details");
-        System.out.println(deparmentRequest);
-        System.out.println("He");
-        return new ResponseEntity<>(deparmentRequest, HttpStatus.OK);
+        DeparmentRequest dept= deparmentServices.registorDeaparment(deparmentRequest);
+        return new ResponseEntity<>(dept, HttpStatus.OK);
     }
 }
