@@ -58,10 +58,5 @@ public class Address {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @OneToOne(mappedBy = "address")
-    private Employee employee;
-
-
-
 
 }

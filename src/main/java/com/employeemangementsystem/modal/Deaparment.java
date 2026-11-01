@@ -21,7 +21,7 @@ public class Deaparment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int did;
 
     @Column(name = "Deaparment_Id")
     private String deptId;

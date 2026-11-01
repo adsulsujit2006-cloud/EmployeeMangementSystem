@@ -1,3 +1,4 @@
+
 package com.employeemangementsystem.modal;
 
 import com.employeemangementsystem.enums.Gender;
@@ -11,10 +12,12 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
+@Table(name = "employees")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class Employee {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
@@ -58,19 +61,21 @@ public class Employee {
     private LocalDateTime lastLogin;
 
     @CreationTimestamp
-    @Column(name = "created_at")
+    @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
 
+    @Column(name = "salary")
     private Double salary;
 
     @ManyToOne
     @JoinColumn(name = "department_id")
     private Deaparment department;
+
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id")
-    @JsonIgnore
-    @ToString.Exclude
+    @JoinColumn(name = "address_id", referencedColumnName = "address_id")
+
     @EqualsAndHashCode.Exclude
     private Address address;
+
 
 }

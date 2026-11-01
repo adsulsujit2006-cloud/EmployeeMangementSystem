@@ -16,6 +16,10 @@ public interface DeaparmentRepository extends JpaRepository<Deaparment, Integer>
 
     boolean existsByDepartmentName(String departmentName);
 
+    boolean existsByDepartmentCode(String departmentCode);
+
+    boolean existsByDepEmail(String depEmail);
+
 
 }
 
