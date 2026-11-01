@@ -5,6 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import com.employeemangementsystem.modal.Employee;
 
+import java.util.Optional;
+
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
@@ -12,6 +14,9 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     boolean existsByMobileNumber(String mobileNumber);
     boolean existsByAadhaarNumber(String aadhaarNumber);
     boolean existsByPanNumber(String panNumber);
+
+    Employee findByEmail(String email);
+
 }
 
 /*
