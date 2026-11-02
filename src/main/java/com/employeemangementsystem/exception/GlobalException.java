@@ -32,6 +32,19 @@ public class GlobalException {
 
         return new ResponseEntity<>(response, HttpStatus.CONFLICT);
     }
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleNotFound(ResourceNotFoundException ex
+            ,HttpServletRequest request){
+        ErrorResponse response = ErrorResponse.builder()
+                .timestmp(LocalDateTime.now())
+                .status(HttpStatus.CONFLICT.value())
+                .error(HttpStatus.CONFLICT.getReasonPhrase())
+                .message(ex.getMessage())
+                .path(request.getRequestURI())
+                .build();
+
+        return new ResponseEntity<>(response, HttpStatus.CONFLICT);
+    }
 
     @ExceptionHandler(NullPointerException.class)
     public ResponseEntity<ErrorResponse> handleNullPointer(

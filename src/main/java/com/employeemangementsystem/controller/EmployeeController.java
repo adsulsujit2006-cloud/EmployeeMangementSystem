@@ -19,8 +19,8 @@ public class EmployeeController {
     @Autowired
     private EmployeeServices employeeServices;
 
-    @Autowired                                  // added
-    private EmailServcie emailServcie;          // made private, same field
+    @Autowired
+    private EmailServcie emailServcie;
 
     /*
     REST Api : Register employee with required details

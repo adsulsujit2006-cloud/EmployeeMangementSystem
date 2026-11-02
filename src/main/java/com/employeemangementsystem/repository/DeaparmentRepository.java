@@ -10,7 +10,8 @@ import java.util.List;
 @Repository
 public interface DeaparmentRepository extends JpaRepository<Deaparment, Integer> {
 
-    @Query(value = "SELECT id, department_name, department_code, description, location, status FROM department",
+    @Query(value = "SELECT did, Deaparment_Id, department_name, department_code, \n" +
+            "            description, location, status, Deaparment_EMail, Register_Date  FROM department",
             nativeQuery = true)
     List<Deaparment> findAllDepartmentsOnly();
 
@@ -19,7 +20,15 @@ public interface DeaparmentRepository extends JpaRepository<Deaparment, Integer>
     boolean existsByDepartmentCode(String departmentCode);
 
     boolean existsByDepEmail(String depEmail);
-
+/*
+private boolean status
+  private String departmentName;
+    private String departmentCode;
+    private String description;
+    private String depEmail;
+    private String location;
+    private String deptId;
+ */
 
 }
 
